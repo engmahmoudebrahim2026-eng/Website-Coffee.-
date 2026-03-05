@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="مشروبات ساخنه  (1).jpg" type="image/x-icon">
+    <meta name="description" content="We aim to provide valuable and useful information about Website Coffee where we offer rich and diverse content that meets the needs of  our visitors and helps them better understand the topic">
+    <meta name="outhor" content="Engineer Mahmoud Ebrahim">
+    <meta name="keywords" content="Html,css,JS,Coding Html and css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Website Coffee</title>
+</head>
+<style>
+    .btn,
+    .offer-card,
+    .menu-img {
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        background-color: rgb(213, 211, 211);
+        color: #000;
+    }
+
+    /* Hero Section */
+    .hero {
+        position: relative;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        color: white;
+        overflow: hidden;
+        flex-direction: column;
+    }
+
+    .hero img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+    }
+
+    .hero div {
+        position: relative;
+        z-index: 3;
+    }
+
+    .hero .btn-hero {
+        margin-top: 20px;
+    }
+
+
+    /* Navbar */
+    .navbar-brand {
+        font-size: 1.8rem;
+        display: flex;
+        gap: 10px;
+        color: #fff;
+    }
+
+    .navbar-brand img {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    /* Special Offers */
+    .offer-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        object-fit: cover;
+        transition: all 0.3s ease;
+    }
+
+    .offer-card {
+        background: #1a1a1a;
+        color: white;
+        border-radius: 12px;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .offer-card:hover .offer-img {
+        transform: scale(1.1);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .p {
+        color: orange;
+    }
+
+    del {
+        color: white;
+    }
+
+    /* Menu */
+    #menu {
+        padding: 5rem 0;
+        margin: auto;
+        background-size: cover;
+    }
+
+    #menu .title {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    #menu .title h1,
+    h1,
+    h2 {
+        margin-bottom: 20px;
+        text-transform: capitalize;
+        font-size: 3rem;
+    }
+
+    #menu .menu-items .menu-item img {
+        width: 80px;
+        margin-right: 20px;
+        border-radius: 50%;
+        transition: transform 0.2s ease;
+
+    }
+
+    #menu .menu-items .menu-item img:hover {
+        transform: scale(0.8);
+    }
+
+
+    #menu .menu-items .menu-item h4 {
+        border-bottom: 1px dashed #c2bdbd;
+        padding-bottom: 10px;
+        position: relative;
+    }
+
+    #menu .menu-items .menu-item span {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #e4b95b;
+
+    }
+
+    #menu .menu-items .menu-item p {
+        margin-top: 20px;
+    }
+
+    /* Gallery */
+    .gallery-img {
+        width: 100%;
+        height: 350px;
+        max-width: 400px;
+        border-radius: 12px;
+        object-fit: cover;
+        margin: 0 auto;
+        transition: transform 0.2s ease;
+
+    }
+
+    .gallery-img:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        transform: scale(0.8);
+
+    }
+
+    /* Contact Form */
+    .error {
+        color: #ff4d4d;
+        font-size: 13px;
+        display: none;
+        margin-top: -8px;
+        margin-bottom: 10px;
+    }
+
+    #contactForm .btn {
+        background: linear-gradient(90deg, #383848, #c2bdbd);
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+
+    #contactForm .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 20px #383848;
+    }
+
+    /* Dark and Mood  */
+    :root {
+        --bg: #0f172a;
+        --card: #1e293b;
+        --text: #e5e7eb;
+        --main: #38bdf8;
+    }
+
+    .light {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #020617;
+        --main: #2563eb;
+    }
+
+    body {
+        background: var(--bg);
+        color: var(--text);
+        transition: .4s;
+    }
+
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .card,
+    .skill {
+        background: var(--card);
+        color: var(--text);
+        border: none;
+        transition: 0.2s;
+    }
+
+    img.profile {
+        width: 260px;
+        border-radius: 50%;
+        border: 5px solid var(--main);
+    }
+
+    .btn-main {
+        background: var(--main);
+        color: #fff;
+        border: none;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .fade {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: .6s;
+    }
+
+    .fade.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold " href="#home">
+                ☕Coffee
+            </a>
+            <!-- الروابط على الشاشات الكبيرة -->
+            <ul class="navbar-nav d-none d-lg-flex flex-row ms-auto gap-3 me-5">
+                <li class="nav-item"><a class="nav-link fw-bolder btn btn-outline-dark p-2 fs-5 active"
+                        href="#history">History</a></li>
+                <li class="nav-item"><a class="nav-link fw-bolder btn btn-outline-dark p-2 fs-5"
+                        href="#offers">Offers</a></li>
+                <li class="nav-item"><a class="nav-link fw-bolder btn btn-outline-dark p-2 fs-5" href="#menu">Menu</a>
+                </li>
+                <li class="nav-item"><a class="nav-link fw-bolder btn btn-outline-dark p-2 fs-5"
+                        href="#gallery">Gallery</a>
+                </li>
+                <li class="nav-item"><a class="nav-link fw-bolder btn btn-outline-dark p-2 fs-5"
+                        href="#contact">contact</a>
+                </li>
+                <li>
+                    <button class="btn btn-outline-light" onclick="toggleMode()">🌙</button>
+                </li>
+            </ul>
+
+            <!-- زر الثلاث شرط يظهر فقط على الشاشات الصغيرة -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- OFFCANVAS NAVBAR -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
+        <div class="offcanvas-header">
+            <a class="navbar-brand fw-bold" href="#home">
+                ☕Coffee
+            </a>
+            <!-- زر X لقفل -->
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link  fw-bolder btn btn-outline-dark p-2 fs-5"
+                        href="#history">History</a></li>
+                <li class="nav-item"><a class="nav-link fw-bolder btn btn-outline-dark p-2 fs-5"
+                        href="#offers">Offers</a></li>
+                <li class="nav-item"><a class="nav-link fw-bolder btn btn-outline-dark p-2 fs-5" href="#menu">Menu</a>
+                </li>
+                <li class="nav-item"><a class="nav-link fw-bolder btn btn-outline-dark p-2 fs-5"
+                        href="#gallery">Gallery</a>
+                </li>
+                <li class="nav-item"><a class="nav-link fw-bolder btn btn-outline-dark p-2 fs-5"
+                        href="#contact">contact</a>
+                </li>
+            </ul>
+            <hr>
+            <div class="d-grid gap-2">
+                <a href="Customer.html" class="btn btn-outline-primary">Table Reservation</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <img src="hero-bg.jpg" alt="Hero Background">
+        <div class="container">
+            <h1 class="fw-bolder text-capitalize">Start your day with a <br> frech coffee</h1>
+            <p>Coffee is not just a drink, it's a moment of peace in a busy day, a partner in
+                happy and sad moments, a new beginning full of energy and creativity.
+                Coffee is an art and a science, a mood and a state of mind, a moment of contemplation and innovation,
+                a passion and a love.
+                Coffee is more than just a drink, it's a unique experience, a journey to a world of rich flavors and
+                aromas.</p>
+            <a href="#menu" class="btn btn-outline-light text-capitalize">Menu</a>
+            <a href="Customer.html" class="btn btn-light">Table Reservation</a>
+        </div>
+    </header>
+
+    <!-- History Section -->
+    <section id="history" class="py-5">
+        <div class="container">
+            <h1 class="text-center">☕ The Coffee History</h1>
+            <div class="row">
+                <div class="col-12 col-ms-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                    <p class="fs-5 ">Coffee is an ** integral part of our daily lives. We drink coffee to start our
+                        day, to recharge, and to enjoy moments with friends and family. Coffee is more than just a
+                        drink, it's a moment to share with loved ones, a moment to reflect and think. Share your
+                        favorite coffee moments with us.</p>
+                    <p class="fs-5 "> In every cup of coffee, there's a moment of reflection and relaxation. Coffee is
+                        more than just a drink, it's a moment to think and unwind. We believe that coffee is an integral
+                        part of our daily lives, bringing people together and creating unforgettable moments. Share your
+                        favorite coffee moments with us.
+                    </p>
+                    <button class="btn btn-dark d-block " id="link" data-bs-toggle="modal"
+                        data-bs-target="#coffee">Learn
+                        More</button>
+                </div>
+                <div class="col-12 col-ms-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                    <img src="img History Section.jpg" alt="History Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section id="offers" class="py-5 text-center bg-dark text-white">
+        <div class="container">
+            <h1>☕ Our Special Offers</h1>
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-3">
+                    <div class="offer-card"><img src="img Offers (3).jpg" class="offer-img">
+                        <h6 class="text-capitalize">☕ Coffee</h6>
+                        <p class="p"><del>$ 40.00</del> $ 50.00</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="offer-card"><img src="img Offers (4).jpg" class="offer-img">
+                        <h6 class="text-capitalize">🍺 Cappuccino</h6>
+                        <p class="p"><del>$ 30.00</del> $ 40.00</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="offer-card"><img src="img Offers (2).jpg" class="offer-img">
+                        <h6 class="text-capitalize">🥛 Hot choccolate</h6>
+                        <p class="p"><del>$ 20.00</del> $ 30.00</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="offer-card"><img src="img Offers (1).jpg" class="offer-img">
+                        <h6 class="text-capitalize">🍵 Mint Tea</h6>
+                        <p class="p"><del>$ 10.00</del> $ 20.00</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- menu -->
+    <section id="menu">
+        <div class="container">
+            <div class="title">
+                <h1 class="fw-bolder">☕ Our Special Menu</h1>
+            </div>
+            <div class="menu-items">
+                <div class="menu-items-left"> </div>
+                <div class="menu-items-left">
+                    <div class="menu-item">
+                        <img src="مشروبات ساخنه  (6).jpg" alt="LASAL Cheese">
+                        <div>
+                            <h4> Coffee <span class="primary-text">$ 30.00</span></h1>
+                                <p>Warm Beverage Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+                                    cumque
+                                    explicabo incidunt fuga hic voluptatum!</p>
+
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="مشروبات ساخنه  (1).jpg" alt="JUMBO CRAB 
+SHRIMP">
+                        <div>
+                            <h4>Cappuccino <span class="primary-text">$ 40.00</span></h4>
+                            <p>Warm Beverage Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus cumque
+                                explicabo incidunt fuga hic voluptatum!</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="مشروبات ساخنه  (3).jpg" alt="KOKTAIL 
+JUCIE">
+                        <div>
+                            <h4> Hot Choccolate <span class="primarytext">$ 50.00</span></h4>
+                            <p>Warm Beverage Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus cumque
+                                explicabo incidunt fuga hic voluptatum!</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="مشروبات ساخنه  (2).jpg" alt="KOKTAIL 
+JUCIE">
+                        <div>
+                            <h4> Tea green <span class="primarytext">$ 50.00</span></h4>
+                            <p>Warm Beverage Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus cumque
+                                explicabo incidunt fuga hic voluptatum!</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="مشروبات ساقعه  (12).jpg" alt="CAPO STEAK">
+                        <div>
+                            <h4>Cocktail Juice <span class="primarytext">$ 60.00</span></h4>
+                            <p>Refreshing Drink Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus cumque
+                                explicabo incidunt fuga hic voluptatum!</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="مشروبات ساقعه  (5).jpg" alt="ORGANIC 
+FRUIT SALAD">
+                        <div>
+                            <h4>Pineapple Juice<span class="primary-text">$ 70.00</span></h4>
+                            <p>Refreshing Drink Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus cumque
+                                explicabo incidunt fuga hic voluptatum!</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="مشروبات ساقعه  (2).jpg" alt="CHEESE 
+PIZZA">
+                        <div>
+                            <h4>Orange<span class="primarytext">$ 80.00</span></h4>
+                            <p>Refreshing Drink Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus cumque
+                                explicabo incidunt fuga hic voluptatum!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5 bg-dark text-white text-center">
+        <div class="container">
+
+            <h2 class="fw-bold mb-4">☕ Our Coffee Gallery</h2>
+
+            <div id="ga" class="carousel slide" data-bs-ride="carousel">
+
+                <div class="carousel-inner">
+                    <!-- مشروبات ساخن -->
+                    <div class="carousel-item active text-center">
+                        <img src="مشروبات ساخنه  (1).jpg" class="gallery-img d-inline-block" alt="Food 1">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساخنه  (2).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساخنه  (3).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساخنه  (4).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساخنه  (5).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساخنه  (6).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساخنه  (7).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساخنه  (8).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساخنه  (9).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساخنه  (10).jpg" class="gallery-img d-inline-block">
+                    </div>
+                    <!-- مشروبات ساقعه -->
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (1).jpg" class="gallery-img d-inline-block" alt="Food 1">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (2).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (3).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (4).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (5).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (6).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (8).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (7).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (8).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (9).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (10).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (11).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (12).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (13).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (14).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <img src="مشروبات ساقعه  (15).jpg" class="gallery-img d-inline-block">
+                    </div>
+
+                </div>
+
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#ga" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#ga" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <h2 class="text-center mb-4 mt-3">☕Contact Me</h2>
+        <div class="container">
+            <div class="row">
+                <form id="contactForm" class="col-12 col-ms-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6  mx-auto" action="https://api.sheetmonkey.io/form/93i8znffDuJVvTTBquYKRr">
+                    <!-- Name -->
+                    <input id="name" class="form-control mb-2" placeholder="Your Name">
+                    <div id="nameError" class="error">Please enter your name</div>
+
+                    <!-- Email -->
+                    <input id="email" type="email" class="form-control mb-2" placeholder="Your Email">
+                    <div id="emailError" class="error">Please enter your email</div>
+
+                    <!-- Message -->
+                    <textarea id="message" class="form-control mb-2" placeholder="Your Message"
+                        style="height: 20vh;"></textarea>
+                    <div id="messageError" class="error">Please enter your message</div>
+
+                    <button class="btn w-100 mt-3" type="submit">Send Message</button>
+                </form>
+                <div class="col-12 col-ms-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 ">
+                    <img src="img contact us.png" alt="" class="img-fluid mt-3">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer style="background-color: #383848;" class="p-3 text-center mt-5">
+        <p class="text-light text-capitalize">Copyright &copy; 2025 ☕ Coffee - All rights reserved | Designed by Engineer Mahmoud ibrhem 2026.
+        </p>
+    </footer>
+        </p>
+    </footer>
+
+    <!-- coding JS form -->
+    <script>
+        const form = document.getElementById("contactForm");
+        const inputs = ["name", "email", "message"];
+
+        // Hide error while typing
+        inputs.forEach(id => {
+            document.getElementById(id).addEventListener("input", () => {
+                document.getElementById(id + "Error").style.display = "none";
+            });
+        });
+
+        // Form submit validation
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            let valid = true;
+            inputs.forEach(id => {
+                const input = document.getElementById(id);
+                const error = document.getElementById(id + "Error");
+                if (input.value.trim() === "") {
+                    error.style.display = "block";
+                    valid = false;
+                }
+            });
+            if (valid) {
+                alert("Message sent successfully ✔️");
+                form.reset();
+            }
+        });
+    </script>
+
+    <!-- coding JS Dark and Mood -->
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("light");
+        }
+
+        const fades = document.querySelectorAll(".fade");
+        window.addEventListener("scroll", () => {
+            fades.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add("show");
+                }
+            });
+        });
+    </script>
+
+    <!-- link JS -->
+    <script src="bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

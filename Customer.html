@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="img Offers (2).jpg" type="image/x-icon">
+  <meta name="description"
+    content="We aim to provide valuable and useful information about Website Coffee where we offer rich and diverse content that meets the needs of  our visitors and helps them better understand the topic">
+  <meta name="outhor" content="Engineer Mahmoud Ebrahim">
+  <meta name="keywords" content="Html,css,JS,Coding Html and css">
+  <title>Coffee Restaurant - Customer Reviews Coffee Restaurant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* تأثير السحب/المسح عند الحذف */
+    .dynamic-review .card {
+      cursor: pointer;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .dynamic-review.deleting .card {
+      transform: translateX(100%) rotate(10deg);
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body class="bg-dark">
+  <div class="container my-5">
+    <h2 class="text-center mb-4 text-light">☕ Customer Reviews</h2>
+    <!-- Review Form -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-6">
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="card-title text-center mb-3">Add Your Review</h5>
+
+            <form id="reviewForm" action="https://api.sheetmonkey.io/form/93i8znffDuJVvTTBquYKRr">
+              <div class="mb-3">
+                <label class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="reviewName" placeholder="Enter your name" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Your Review</label>
+                <textarea class="form-control" id="reviewMessage" rows="3" placeholder="Write your review here"
+                  required></textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Rating</label>
+                <select class="form-select" id="reviewRating" required>
+                  <option value="">Select rating</option>
+                  <option value="5">★★★★★</option>
+                  <option value="4">★★★★☆</option>
+                  <option value="3">★★★☆☆</option>
+                  <option value="2">★★☆☆☆</option>
+                  <option value="1">★☆☆☆☆</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-outline-primary w-100">Submit Review</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews Display -->
+    <div class="row" id="reviewsContainer">
+      <!-- Hardcoded Old Reviews -->
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title">Mahmoud ibrhem </h5>
+            <p class="text-warning mb-2">★★★★★</p>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, delectus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title">Saif El-Din Ayman</h5>
+            <p class="text-warning mb-2">★★★★☆</p>
+
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, delectus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title"> Mohamed Abdel Rahim</h5>
+            <p class="text-warning mb-2">★★★☆☆</p>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, delectus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title"> Mohamed Samir </h5>
+            <p class="text-warning mb-2">★★★★★</p>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, delectus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title"> Hossam Hassan</h5>
+            <p class="text-warning mb-2">★★★★☆</p>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, delectus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title"> Abdel Rahaman Mohamed</h5>
+            <p class="text-warning mb-2">★★★★☆</p>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, delectus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title"> Omar saad</h5>
+            <p class="text-warning mb-2">★★★★★</p>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, delectus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title"> Mohamed Abdel Nasser</h5>
+            <p class="text-warning mb-2">★★★☆☆</p>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, delectus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title"> Yossef Khaled</h5>
+            <p class="text-warning mb-2">★★★★☆</p>
+
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, delectus.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="bootstrap.bundle.min.js"></script>
+
+  <!-- Coding JS  -->
+  <script>
+    const reviewForm = document.getElementById("reviewForm");
+    const reviewsContainer = document.getElementById("reviewsContainer");
+
+    // حذف أي رسائل قديمة
+    localStorage.removeItem("reviews");
+    let reviews = [];
+
+    function displayReviews() {
+      // إزالة أي dynamic reviews قديمة
+      const dynamicReviews = reviewsContainer.querySelectorAll(".dynamic-review");
+      dynamicReviews.forEach(el => el.remove());
+
+      // إضافة المراجعات الجديدة فوق الكروت الثابتة
+      reviews.forEach((review, index) => {
+        const div = document.createElement("div");
+        div.classList.add("col-md-4", "mb-3", "dynamic-review");
+        div.innerHTML = `
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title">${review.name}</h5>
+            <p class="text-warning mb-2">${review.rating}</p>
+            <p class="card-text">${review.message}</p>
+          </div>
+        </div>
+      `;
+
+        // إضافة تأثير مسح الكارد عند النقر
+        div.addEventListener("click", () => {
+          div.classList.add("deleting");
+          setTimeout(() => {
+            reviews.splice(index, 1); // إزالة من المصفوفة
+            displayReviews(); // إعادة العرض
+          }, 300); // مدة الانتقال تطابق CSS
+        });
+
+        reviewsContainer.prepend(div);
+      });
+    }
+
+    displayReviews();
+
+    reviewForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("reviewName").value;
+      const message = document.getElementById("reviewMessage").value;
+      const rating = document.getElementById("reviewRating").value;
+
+      const newReview = { name, message, rating };
+      reviews.unshift(newReview);
+      displayReviews();
+      reviewForm.reset();
+    });
+  </script>
+
+</body>
+
+</html>
